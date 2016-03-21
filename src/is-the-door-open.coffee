@@ -19,31 +19,20 @@
 KEY = 'is-the-door-open'
 
 module.exports = (robot) ->
-  robot.respond /is the door open/i, (res) ->
-    if isOpen()
-      res.send 'Yes, the door is open! :D'
+  robot.respond /is the door ([\w ]+)/i, (res) ->
+    status = res.match[1]
+    if isStatus(status)
+      res.send "Yes, the door is #{status}."
     else
-      res.send 'No, the door is closed. :('
+      res.send "No, the door is not #{status}."
 
-  robot.respond /is the door closed/i, (res) ->
-    if isOpen()
-      res.send 'No, the door is open! :D'
-    else
-      res.send 'Yes, the door is closed. :('
+  robot.respond /the door is ([\w ]+)/i, (res) ->
+    status = res.match[1]
+    update(status)
+    res.send "The door is #{status}."
 
-  robot.respond /the door is open/i, (res) ->
-    open()
-    res.send 'The door is open! :D'
+  update = (status) ->
+    robot.brain.set(KEY, status.toLowerCase())
 
-  robot.respond /the door is closed/i, (res) ->
-    close()
-    res.send 'The door is closed. :('
-
-  open = ->
-    robot.brain.set(KEY, true)
-
-  close = ->
-    robot.brain.set(KEY, false)
-
-  isOpen = ->
-    robot.brain.get(KEY)
+  isStatus = (status) ->
+    status.toLowerCase() == robot.brain.get(KEY)

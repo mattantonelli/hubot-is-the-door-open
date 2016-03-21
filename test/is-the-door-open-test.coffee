@@ -12,15 +12,8 @@ describe 'is-the-door-open', ->
 
     require('../src/is-the-door-open')(@robot)
 
-  it 'registers a respond listener for the is open command', ->
+  it 'registers a respond listener for status command', ->
     expect(@robot.respond).to.have.been.calledWith(/is the door open/)
 
-  it 'registers a respond listener for the is closed command', ->
-    expect(@robot.respond).to.have.been.calledWith(/is the door closed/)
-
-  it 'registers a respond listener for the open command', ->
+  it 'registers a respond listener for the update command', ->
     expect(@robot.respond).to.have.been.calledWith(/the door is open/)
-
-  it 'registers a respond listener for the close command', ->
-    expect(@robot.respond).to.have.been.calledWith(/the door is closed/)
-

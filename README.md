@@ -20,16 +20,32 @@ Then add **hubot-is-the-door-open** to your `external-scripts.json`:
 
 ## Sample Interaction
 
+### Basic
 ```
 User> hubot is the door open?
-Hubot> No, the door is closed. :(
+Hubot> No, the door is not open.
 
 User> hubot the door is open
-Hubot> The door is open! :D
+Hubot> The door is open.
 
 User> hubot is the door open?
-Hubot> Yes, the door is open! :D
+Hubot> Yes, the door is open.
 
 User> hubot is the door closed?
-Hubot> No, the door is open! :D
+Hubot> No, the door is not closed.
+
+User> hubot the door is closed
+Hubot> The door is closed.
+```
+
+### Advanced
+```
+User> hubot the door is slightly ajar
+Hubot> The door is slightly ajar.
+
+User> hubot is the door slightly ajar?
+Hubot> Yes, the door is slightly ajar.
+
+User> hubot is the door askew?
+Hubot> No, the door is not askew.
 ```
