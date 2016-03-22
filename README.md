@@ -49,3 +49,12 @@ Hubot> Yes, the door is slightly ajar.
 User> hubot is the door askew?
 Hubot> No, the door is not askew.
 ```
+
+### Terse
+```
+User> hubot door open
+Hubot> The door is open.
+
+User> hubot door open?
+Hubot> Yes, the door is open.
+```
