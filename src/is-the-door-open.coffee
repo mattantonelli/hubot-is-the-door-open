@@ -8,10 +8,10 @@
 #   None
 #
 # Commands:
-#   hubot is the door open   - tells you if the door is open
-#   hubot is the door closed - tells you if the door is closed
-#   hubot the door is open   - lets hubot know the door is open
-#   hubot the door is closed - lets hubot know the door is closed
+#   hubot is the door open?   - tells you if the door is open
+#   hubot is the door closed? - tells you if the door is closed
+#   hubot the door is open    - lets hubot know the door is open
+#   hubot the door is closed  - lets hubot know the door is closed
 #
 # Author:
 #   github.com/mattantonelli
@@ -24,7 +24,7 @@ module.exports = (robot) ->
     if isStatus(status)
       res.send "Yes, the door is #{status}."
     else
-      res.send "No, the door is not #{status}."
+      res.send "No, the door is #{currentStatus()}."
 
   robot.respond /(?:the )?door (?:is )?([\w ]+)(?![\w ]|\?)/i, (res) ->
     status = res.match[1]
@@ -34,5 +34,8 @@ module.exports = (robot) ->
   update = (status) ->
     robot.brain.set(KEY, status.toLowerCase())
 
+  currentStatus = ->
+    robot.brain.get(KEY)
+
   isStatus = (status) ->
-    status.toLowerCase() == robot.brain.get(KEY)
+    status.toLowerCase() == currentStatus()

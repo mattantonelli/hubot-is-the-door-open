@@ -1,7 +1,7 @@
 {
   "name": "hubot-is-the-door-open",
   "description": "Keeps track of whether or not the door is open.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Matt Antonelli <mattr.antonelli@gmail.com>",
   "license": "MIT",
 

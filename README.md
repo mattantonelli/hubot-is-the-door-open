@@ -23,7 +23,7 @@ Then add **hubot-is-the-door-open** to your `external-scripts.json`:
 ### Basic
 ```
 User> hubot is the door open?
-Hubot> No, the door is not open.
+Hubot> No, the door is closed.
 
 User> hubot the door is open
 Hubot> The door is open.
@@ -32,7 +32,7 @@ User> hubot is the door open?
 Hubot> Yes, the door is open.
 
 User> hubot is the door closed?
-Hubot> No, the door is not closed.
+Hubot> No, the door is open.
 
 User> hubot the door is closed
 Hubot> The door is closed.
@@ -47,7 +47,7 @@ User> hubot is the door slightly ajar?
 Hubot> Yes, the door is slightly ajar.
 
 User> hubot is the door askew?
-Hubot> No, the door is not askew.
+Hubot> No, the door is slightly ajar.
 ```
 
 ### Terse
